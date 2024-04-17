@@ -1,0 +1,49 @@
+.navbar {
+	background-color: #333;
+	overflow: hidden;
+}
+
+.navbar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar li {
+	float: left;
+}
+
+.navbar button {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	background-color: inherit;
+	border: none;
+	cursor: pointer;
+}
+
+.navbar button:hover {
+	background-color: #111;
+}
+
+.container-dashboard {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+	width: 70%;
+	margin: 0 auto; /* Centrar el contenedor */
+}
+
+@media (max-width: 1024px) {
+	.container-dashboard {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.container-dashboard {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
