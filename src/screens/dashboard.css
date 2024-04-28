@@ -33,7 +33,7 @@
 	grid-template-columns: repeat(4, 1fr);
 	gap: 20px;
 	width: 70%;
-	margin: 0 auto; /* Centrar el contenedor */
+	margin: 0 auto;
 }
 
 @media (max-width: 1024px) {
