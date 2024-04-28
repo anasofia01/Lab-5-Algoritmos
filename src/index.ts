@@ -1,6 +1,6 @@
 import './screens/dashboard';
 
-class Index extends HTMLElement {
+class AppContainer extends HTMLElement {
 	constructor() {
 		super();
 	}
@@ -12,5 +12,5 @@ class Index extends HTMLElement {
 	}
 }
 
-customElements.define('index-contenedor', Index);
-export default Index;
+customElements.define('app-container', AppContainer);
+export default AppContainer;
