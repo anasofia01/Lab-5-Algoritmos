@@ -17,15 +17,18 @@ class ShoppingCartItem extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-      <div>
-        <img src = "">
-        <h1>hola</h1>
-        <small></small>
-      </div>
+			<style>${styles}</style>
+			<div class="container-product">
+			<div class="content-left">
+				<img class="img-product" src="${this.image}">
+			</div>
+			<div class="content-right">
+				<h1>${this.name}</h1>
+				<p>${this.price}</p>
+			</div>
+		</div>
       `;
 		}
-		const cssComponent = this.ownerDocument.createElement('style');
-		cssComponent.textContent = styles;
 	}
 }
 

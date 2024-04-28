@@ -1,4 +1,5 @@
 import styles from './Product.css';
+import { dispatch } from '../../store/index';
 
 class ProductCard extends HTMLElement {
 	image?: string;
@@ -15,24 +16,38 @@ class ProductCard extends HTMLElement {
 
 	connectedCallback() {
 		this.render();
+		this.shadowRoot?.querySelector('button')?.addEventListener('click', this.addToCar.bind(this));
+	}
+
+	addToCar() {
+		console.log('producto:', this.name);
+		const productInfo = {
+			image: this.image,
+			name: this.name,
+			price: this.price,
+		};
+		dispatch({
+			type: 'ADD_TO_CAR',
+			payload: productInfo,
+		});
+		alert('Se ha añadido al carrito');
 	}
 
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-      <div>
-        <img src = "${this.image}">
+			<style>${styles}}</style>
+      <div class = "container-product">
+        <img class = "img-product" src = "${this.image}">
         <h1>${this.name}</h1>
         <p>${this.description}</p>
-        <small>${this.category}</small>
-        <small>${this.rating}</small>
+        <small>${this.category} -</small>
+        <small>${this.rating} -</small>
         <small>${this.price}</small>
-        <button onclick="alert('¡Añadido!')">Añadir al carrito</button>
+        <button class = "btnCar">Añadir al carrito</button>
       </div>
       `;
 		}
-		const cssComponent = this.ownerDocument.createElement('style');
-		cssComponent.textContent = styles;
 	}
 }
 
